@@ -1,0 +1,22 @@
+<div class="card col-md-12">
+  <div class="row">
+    <div class="col-md-3 avatar">
+      <img
+        src="../../../assets/public/avatar"
+        alt="User's avatar"
+        class="avatar-img"
+      />
+    </div>
+
+    <div class="col-md-9 card-body">
+      <a routerLink="/users/{{ user.id }}" style="cursor: pointer;">
+        <p class="card-text">
+          {{ user.name }} <br />
+          This user was born in => {{ user.birthdate | date: "mediumDate" }}
+          <br />
+          This is this user id {{ user.id }}
+        </p>
+      </a>
+    </div>
+  </div>
+</div>

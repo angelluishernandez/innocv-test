@@ -1,0 +1,10 @@
+<div class="row">
+  <div class="col-md-12">
+    <hr />
+  </div>
+  <div class="row">
+    <div class="col-md-10 card-container" *ngFor="let user of users$">
+      <app-user-item [user]="user"></app-user-item>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,23 @@
+<div class="container" *ngIf="user">
+  <div class="row">
+    <div class="col-md-12 border-green user-info-container p-3">
+      <h3>This is the user</h3>
+      <p>
+        {{ user.name }}
+      </p>
+      <p>Was born in {{ user.birthdate | date: "mediumDate" }}</p>
+    </div>
+  </div>
+  <div class="row justify-content-between mt-5">
+    <div class="col-md-6 text-center mt-1">
+      <button (click)="onDelete(user.id)" class="btn btn-danger">
+        Delete this user
+      </button>
+    </div>
+    <div class="col-md-6 text-center mt-1">
+      <a routerLink="/users/edit/{{ user.id }}" class="btn btn-primary"
+        >Edit this user</a
+      >
+    </div>
+  </div>
+</div>

@@ -1,0 +1,71 @@
+<div class="row">
+  <div class="col-md-12">
+    <div class="row" *ngIf="!isUserCreate">
+      <h3>
+        Modify this user
+      </h3>
+    </div>
+    <form [formGroup]="userForm" (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label for="name">
+          Name:
+          <input
+            type="text"
+            class="form-control"
+            formControlName="name"
+            [ngClass]="{ 'is-invalid': submitted && form.name.errors }"
+          />
+          <div *ngIf="submitted && form.name.errors" class="invalid-feedback">
+            <div *ngIf="form.name.errors.required">
+              Name is required
+            </div>
+            <div *ngIf="form.name.errors.minlength">
+              Name should be at least 2 characters long
+            </div>
+            <div *ngIf="form.name.errors.maxlength">
+              Name cannot be longer than 20 characters
+            </div>
+          </div>
+        </label>
+        <div class="form-group">
+          <label for=""
+            >Date:
+            <input
+              type="date"
+              class="form-control"
+              formControlName="birthdate"
+            />
+          </label>
+        </div>
+      </div>
+
+      <button
+        class="btn btn-primary"
+        [disabled]="form.name.errors"
+        *ngIf="isUserCreate"
+      >
+        Create user
+      </button>
+      <button
+        class="btn btn-primary"
+        [disabled]="form.name.errors"
+        *ngIf="!isUserCreate"
+      >
+        Edit user
+      </button>
+    </form>
+  </div>
+</div>
+<hr />
+<!-- 
+<div class="row">
+  <div *ngIf="submitted" class="alert alert-success">
+    <h3>A new user has been created!</h3>
+    <div class="col-md-6">
+      <p>{{ submittedUser.name }}</p>
+    </div>
+    <div class="col-md-6">
+      <p>{{ submittedUser.birthdate }}</p>
+    </div>
+  </div>
+</div> -->
